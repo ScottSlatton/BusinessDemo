@@ -1,12 +1,11 @@
 package com.scottslatton.businessapp.controller;
 
+import com.scottslatton.businessapp.exception.ResourceNotFoundException;
 import com.scottslatton.businessapp.repository.EmployeeRepo;
 import com.scottslatton.businessapp.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +20,17 @@ public class EmployeeController {
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(){
         return employeeRepo.findAll();
+    }
+
+    @PostMapping("/employees")
+    public Employee createEmployee(@RequestBody Employee employee){
+        return employeeRepo.save(employee);
+    }
+    @GetMapping("/employees/{id}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
+
+        Employee employee = employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee was not found."));
+
+        return ResponseEntity.ok(employee);
     }
 }
