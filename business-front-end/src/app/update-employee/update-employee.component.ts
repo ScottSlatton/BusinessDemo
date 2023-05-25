@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
@@ -8,7 +8,7 @@ import { Employee } from '../employee';
   templateUrl: './update-employee.component.html',
   styleUrls: ['./update-employee.component.css']
 })
-export class UpdateEmployeeComponent {
+export class UpdateEmployeeComponent implements OnInit {
 
   id!: number;
 
