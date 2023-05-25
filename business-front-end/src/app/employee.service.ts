@@ -31,7 +31,6 @@ export class EmployeeService {
   }
 
   deleteEmployee(id: number): Observable<Object>{
-    console.log("inside delete service" + id)
     return this.httpClient.delete<Employee>(`${this.baseUrl}/${id}`)
   }
 }

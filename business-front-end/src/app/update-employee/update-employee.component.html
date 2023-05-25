@@ -2,7 +2,7 @@
 
   <h3>Update Employee</h3>
 
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit();">
 
     <div class="form-group">
       <label>First Name</label>
@@ -18,9 +18,14 @@
       <label>Email</label>
       <input type="text" class="form-control" id="emailId" [(ngModel)] = "employee.emailId" name = "emailId">
     </div>
-
+    <div>
     <button class="btn btn-warning" type="reset">Reset</button>
     <button class="btn btn-success" type="submit">Submit</button>
+    <button (click) = "goBack($event)"  class = "btn btn-info">Back</button>
+    </div>
+
 
   </form>
   </div>
+
+  <app-error [httpError]="myHttpError"></app-error>

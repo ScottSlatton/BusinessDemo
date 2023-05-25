@@ -13,6 +13,8 @@ export class EmployeeListComponent implements OnInit{
 
   employees: Employee[] = [];
 
+  myHttpError: any;
+
   constructor(private router: Router, private employeeService: EmployeeService){}
 
   ngOnInit(): void{
@@ -23,17 +25,12 @@ export class EmployeeListComponent implements OnInit{
   private getEmployees(){
     this.employeeService.getEmployeesList().subscribe( data => {
       this.employees = data
-    });
+    }, error => this.myHttpError = error.error);
   }
 
   public employeeDetails(id: number){
     this.router.navigate(["employee-details", id])
   }
-  public updateEmployee(id: number){
-    this.router.navigate(["update-employee", id])
-  }
-  public deleteEmployee(id: number){
-    this.employeeService.deleteEmployee(id).subscribe(data => {console.log(data)});
-  }
+
 }
 

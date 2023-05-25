@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateEmployeeComponent {
 
   employee: Employee = new Employee();
+  myHttpError: any;
 
   constructor(private employeeService: EmployeeService, private router: Router){}
 
@@ -23,7 +24,7 @@ export class CreateEmployeeComponent {
   }
 
   saveEmployee(){
-    this.employeeService.createEmployee(this.employee).subscribe(data => {console.log(data); this.goToEmployeeList();}, error => console.log(error))
+    this.employeeService.createEmployee(this.employee).subscribe(data => {console.log(data); this.goToEmployeeList();}, error =>  this.myHttpError = error.error)
   }
 
 }

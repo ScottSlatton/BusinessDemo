@@ -5,8 +5,10 @@ import com.scottslatton.businessapp.repository.EmployeeRepo;
 import com.scottslatton.businessapp.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1/")
+@Validated
 public class EmployeeController {
 
     @Autowired
@@ -25,7 +28,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public Employee createEmployee(@RequestBody Employee employee){
+    public Employee createEmployee(@Valid @RequestBody Employee employee){
         return employeeRepo.save(employee);
     }
     @GetMapping("/employees/{id}")
@@ -37,7 +40,7 @@ public class EmployeeController {
     }
 
     @PatchMapping("/employees/{id}")
-    public ResponseEntity<Employee> updateEmployeeById(@PathVariable Long id, @RequestBody Employee employeeRequest){
+    public ResponseEntity<Employee> updateEmployeeById(@PathVariable Long id, @Valid @RequestBody Employee employeeRequest){
         Employee employee = employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee was not found"));
         employee.setFirstName(employeeRequest.getFirstName());
         employee.setLastName(employeeRequest.getLastName());

@@ -1,4 +1,6 @@
 <h2>Employee List</h2>
+
+<app-error [httpError]="myHttpError"></app-error>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,9 +15,7 @@
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
         <td>{{employee.emailId}}</td>
-        <td><button (click) = "employeeDetails(employee.id)" class = "btn btn-info">View</button></td>
-        <td><button (click) = "updateEmployee(employee.id)" class = "btn btn-info">Update</button></td>
-        <td><button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger">Delete</button></td>
+        <td><button (click) = "employeeDetails(employee.id)" class = "btn btn-info">View Details</button></td>
       </tr>
   </tbody>
 </table>

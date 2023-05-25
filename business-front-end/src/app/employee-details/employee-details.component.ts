@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
@@ -11,7 +11,9 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeDetailsComponent implements OnInit {
   id!: number;
   employee!: Employee;
-  constructor(private route: ActivatedRoute, private employeeService: EmployeeService){}
+  myHttpError: any;
+
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router){}
 
 
   ngOnInit(): void {
@@ -19,8 +21,15 @@ export class EmployeeDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params["id"];
 
     this.employee = new Employee()
-    this.employeeService.getEmployeeById(this.id).subscribe(data => {this.employee = data}, error => console.log(error));
+    this.employeeService.getEmployeeById(this.id).subscribe(data => {this.employee = data}, error => this.myHttpError = error.error);
 
+  }
+
+  public updateEmployee(id: number){
+    this.router.navigate(["update-employee", id])
+  }
+  public deleteEmployee(id: number){
+    this.employeeService.deleteEmployee(id).subscribe(data => {console.log(data)});
   }
 
 
