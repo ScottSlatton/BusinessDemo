@@ -1,4 +1,4 @@
-package com.scottslatton.businessapp.exception;
+package com.scottslatton.skillhub.backend.exception;
 
 import java.util.HashMap;
 import java.util.Map;

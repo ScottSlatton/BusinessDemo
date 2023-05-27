@@ -1,10 +1,10 @@
-package com.scottslatton.businessapp;
+package com.scottslatton.skillhub.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BusinessAppApplicationTests {
+class SkillHubApplicationTests {
 
 	@Test
 	void contextLoads() {

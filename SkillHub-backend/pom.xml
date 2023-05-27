@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.scottslatton</groupId>
-	<artifactId>business-app</artifactId>
+	<artifactId>SkillHub-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>business-app</name>
 	<description>Demo project for Spring Boot</description>

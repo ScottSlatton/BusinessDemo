@@ -1,4 +1,4 @@
-package com.scottslatton.businessapp.exception;
+package com.scottslatton.skillhub.backend.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

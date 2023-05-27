@@ -1,13 +1,13 @@
-package com.scottslatton.businessapp;
+package com.scottslatton.skillhub.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BusinessAppApplication {
+public class SkillHubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BusinessAppApplication.class, args);
+		SpringApplication.run(SkillHubApplication.class, args);
 	}
 
 }

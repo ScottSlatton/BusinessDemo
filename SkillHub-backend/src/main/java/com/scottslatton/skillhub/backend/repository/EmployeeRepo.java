@@ -1,6 +1,6 @@
-package com.scottslatton.businessapp.repository;
+package com.scottslatton.skillhub.backend.repository;
 
-import com.scottslatton.businessapp.model.Employee;
+import com.scottslatton.skillhub.backend.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
